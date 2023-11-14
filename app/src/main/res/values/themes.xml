@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Cash_Register" parent="Theme.MaterialComponents.DayNight.Bridge">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/DarkSeaGreen</item>
+
+        <item name="android:windowTitleSize">5sp</item>
+
+    </style>
+
+    <style name="Theme.Cash_Register" parent="Base.Theme.Cash_Register" />
+</resources>

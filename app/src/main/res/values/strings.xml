@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Cash_Register</string>
+    <string name="total">Total</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="minus">-</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="multiple">*</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="divide">/</string>
+    <string name="zero">0</string>
+    <string name="equal">=</string>
+    <string name="clear">C</string>
+    <string name="buy">Buy</string>
+    <string name="quantity">Quantity</string>
+    <string name="product_type">Product Type</string>
+    <string name="product_row_name">name</string>
+    <string name="product_row_price">price</string>
+    <string name="product_row_quantity">quantity</string>
+    <string name="manger">MANAGER</string>
+    <string name="history">HISTORY</string>
+    <string name="restock">RESTOCK</string>
+    <string name="new_quantity">Enter new Quantity</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="history_row_name">name</string>
+    <string name="history_row_price">price</string>
+    <string name="history_row_quantity">quantity</string>
+
+</resources>
