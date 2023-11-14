@@ -81,22 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                   displayTotal.setText(String.valueOf(priceOfItem));
               }
           });
-//        productsBaseAdapter.notifyDataSetChanged();
-//        mangerActivityResultLauncher = registerForActivityResult(
-//                new ActivityResultContracts.StartActivityForResult(),
-//                activityResult -> {
-//                    if (activityResult.getResultCode() == RESULT_OK) {
-//                        Intent data = activityResult.getData();
-//                        if (data != null) {
-//                            ArrayList<History> updatedListOPurchaseHistory = (ArrayList<History>) activityResult.getData().getSerializableExtra("listOPurchaseHistory");
-//                            ArrayList<Product> updatedItemsList = (ArrayList<Product>) activityResult.getData().getSerializableExtra("itemsList");
-//                           listOPurchaseHistory.addAll(updatedListOPurchaseHistory);
-//                            itemsList.addAll(Objects.requireNonNull(updatedItemsList));
-//                            productsBaseAdapter.notifyDataSetChanged();
-//                        }
-//                    }
-//                }
-//        );
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -148,8 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         listOPurchaseHistory.add(newHistory);
                         // Update the quantity in the product list
                         newProduct.updateQuantity(itemsList, quantityValue);
-//                        ProductsBaseAdapter productsBaseAdapter = new ProductsBaseAdapter(itemsList, this);
-//                        productsList.setAdapter(productsBaseAdapter);
+
                           productsBaseAdapter.notifyDataSetChanged();
 
                            text_input.setText("");
@@ -161,26 +145,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             } else if (view.getId() == R.id.manger) {
                 Intent toMangerIntent = new Intent(this, MangerActivity.class);
-//                toMangerIntent.putExtra("historyList", listOPurchaseHistory);
-//                toMangerIntent.putExtra("itemList", itemsList);
+
                 startActivity(toMangerIntent);
-//                mangerActivityResultLauncher.launch(toMangerIntent);
-//                Intent toMangerIntent = new Intent(this, MangerActivity.class);
-//
-//                toMangerIntent.putExtra("list", listOPurchaseHistory);
-//                toMangerIntent.putExtra("secondList", itemsList);
-//                mangerActivityResultLauncher.launch(toMangerIntent);
-//                Intent resultIntent = new Intent();
-//                resultIntent.putExtra("listOPurchaseHistory", listOPurchaseHistory);
-//                resultIntent.putExtra("itemsList", itemsList);
-//                setResult(RESULT_OK, resultIntent);
-//                finish();
-//                mangerActivityResultLauncher.launch(resultIntent);
-//                startActivity(toMangerIntent);
+
             }
 
         }
-//        return null;
+
     }
     public  void showAlertDialog(String mes){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
