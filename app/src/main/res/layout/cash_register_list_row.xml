@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="256dp"
         android:text="@string/product_row_quantity"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/product_price_row"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/product_name_row"

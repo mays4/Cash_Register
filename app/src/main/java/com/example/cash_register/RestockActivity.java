@@ -3,6 +3,7 @@ package com.example.cash_register;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,14 +19,25 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
     Button ok_btn, cancel_btn;
     ArrayList<Product> itemsList;
     ListView reStockList;
-    int selectedProductIndex;
+    int selectedProductIndex =-1;
     String product_name;
     Double priceOfItem;
     Product selectedProduct;
     ProductsBaseAdapter productsBaseAdapter;
 
+//    private static final String KEY_TEXT_INPUT = "text_input";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        if (savedInstanceState != null) {
+//
+//
+//            editText.setText(savedInstanceState.getString("edit text", ""));
+//            selectedProductIndex = savedInstanceState.getInt("selectedProductIndex", -1);
+//
+//
+//        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restock);
 
@@ -37,7 +49,7 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
         reStockList = findViewById(R.id.product_list_restock);
         itemsList = ((myApp) getApplication()).getProductItem();
 
-//        productList = (ArrayList<Product>) getIntent().getSerializableExtra("itemList");
+
 
         if (itemsList != null) {
             productsBaseAdapter = new ProductsBaseAdapter(itemsList, this);
@@ -57,14 +69,14 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.ok) {
-            if (editText.getText().toString().isEmpty()) {
+            if (editText.getText().toString().isEmpty() || selectedProductIndex < 0) {
                 Toast.makeText(this, "Enter value", Toast.LENGTH_SHORT).show();
             } else {
                 String inputText = editText.getText().toString();
                 int restockQ = Integer.parseInt(inputText);
                 selectedProduct.restockQuantity(itemsList, restockQ);
 //                selectedProduct.setQuantity(restockQ);
-                if (itemsList != null) {
+                 if (itemsList != null ) {
                     productsBaseAdapter = new ProductsBaseAdapter(itemsList, this);
                     reStockList.setAdapter(productsBaseAdapter);
 
@@ -73,19 +85,20 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
                     Log.e("RestockActivity", "Product list is null");
                 }
 
-
                 editText.getText().clear();
-//                if (selectedProduct != null && selectedProductIndex >= 0 ) {
+
                 productsBaseAdapter.notifyDataSetChanged();
-//                } else
-//                {
-//                    Toast.makeText(RestockActivity.this, "Select a product before restocking", Toast.LENGTH_SHORT).show();
-//                }}
+
             }
         } else if (view.getId() == R.id.cancel) {
             editText.getText().clear();
+            Intent toMangerIntent = new Intent(this, MangerActivity.class);
+            startActivity(toMangerIntent);
+            finish();
+
         }
 
     }
+
 }
 

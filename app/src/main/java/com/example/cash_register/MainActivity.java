@@ -29,10 +29,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Double priceOfItem;
     String product_name ;
     ProductsBaseAdapter productsBaseAdapter;
-
+//    private static final String KEY_QUANTITY = "quantity";
+    private static final String KEY_TEXT_INPUT = "text_input";
+    private static final String KEY_TOTAL = "total";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+//        if (savedInstanceState != null) {
+//            displayQuantity.setText(savedInstanceState.getString("quantity", ""));
+//            text_input.setText(savedInstanceState.getString(KEY_TEXT_INPUT, ""));
+//            displayTotal.setText(savedInstanceState.getString(KEY_TOTAL, ""));
+//            selectedProductIndex = savedInstanceState.getInt("selectedProductIndex", -1);
+//
+//
+//        }
         setContentView(R.layout.activity_main);
         displayQuantity = findViewById(R.id.quantity);
         displayTotal = findViewById(R.id.total);
@@ -83,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           });
 
     }
+
+
 
     @SuppressLint("SetTextI18n")
     @Override
