@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="@string/product_type"
         app:layout_constraintBottom_toBottomOf="@+id/manger"
@@ -22,13 +22,14 @@
 
     <Button
         android:id="@+id/manger"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/DarkSeaGreen"
         android:text="@string/manger"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1" />
 
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.23" />
+        app:layout_constraintGuide_percent="0.17" />
 
 
     <TableLayout
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:weightSum="4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         >
 
@@ -187,18 +188,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.65" />
+
+
     <TextView
         android:id="@+id/total"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/total"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="@id/manger"
+        app:layout_constraintTop_toTopOf="@id/guideline"
+        app:layout_constraintBottom_toTopOf="@+id/buy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/manger"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline"/>
-
+        app:layout_constraintStart_toStartOf="@+id/manger"
+       />
 
     <Button
         android:id="@+id/buy"
@@ -210,8 +213,8 @@
         app:layout_constraintBottom_toBottomOf="@id/table"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/table"
-        app:layout_constraintTop_toBottomOf="@id/total" />
+        app:layout_constraintTop_toBottomOf="@id/total"
+         />
 
 
     <TextView
@@ -231,7 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.73" />
 
     <ListView
         android:id="@+id/product_list"
