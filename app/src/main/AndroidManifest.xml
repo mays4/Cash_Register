@@ -15,6 +15,7 @@
         tools:targetApi="31">
         <activity
             android:name=".HistoryListActivity"
+            android:label="History List"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -23,6 +24,7 @@
         <activity
             android:name=".RestockActivity"
             android:exported="true"
+            android:label="Restock"
             android:configChanges="orientation|screenSize"
             >
             <meta-data
@@ -31,6 +33,7 @@
         </activity>
         <activity
             android:name=".HistoryDetailsActivity"
+            android:label="History Details"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,6 +41,7 @@
         </activity>
         <activity
             android:name=".MangerActivity"
+            android:label="Manger List"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String product_name ;
     ProductsBaseAdapter productsBaseAdapter;
 //    private static final String KEY_QUANTITY = "quantity";
-    private static final String KEY_TEXT_INPUT = "text_input";
-    private static final String KEY_TOTAL = "total";
+//    private static final String KEY_TEXT_INPUT = "text_input";
+//    private static final String KEY_TOTAL = "total";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -96,28 +96,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
     @Override
     public void onClick(View view) {
 
-        if (view.getId() == R.id.clear) {
+        switch (view.getId()) {
+            case R.id.clear:
             displayQuantity.setText("");
             text_input.setText("");
+            break;
+            case R.id.one:
+            case R.id.two:
+            case R.id.three:
+            case R.id.four:
+            case R.id.five:
+            case R.id.six:
+            case R.id.seven:
+            case R.id.eight:
+            case R.id.nine:
+            case R.id.zero:
 
-        } else {
-
-            if (view.getId() == R.id.one || view.getId() == R.id.two
-                    || view.getId() == R.id.three || view.getId() == R.id.four ||
-                    view.getId() == R.id.five || view.getId() == R.id.six || view.getId() == R.id.seven
-                    || view.getId() == R.id.eight || view.getId() == R.id.nine || view.getId() == R.id.zero
-
-            ) {
                 String value = ((Button) view).getText().toString();
                 displayQuantity.setText(displayQuantity.getText() + value);
 
-
-            } else if (view.getId() == R.id.buy) {
+                break;
+            case  R.id.buy:
                 DateTimeFormatter dateOfOrder = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();
                 String quantityText = displayQuantity.getText().toString();
@@ -156,14 +159,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 }
-            } else if (view.getId() == R.id.manger) {
+                break;
+            case R.id.manger:
                 Intent toMangerIntent = new Intent(this, MangerActivity.class);
 
                 startActivity(toMangerIntent);
 
-            }
-
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + view.getId());
         }
+
+
 
     }
     public  void showAlertDialog(String mes){

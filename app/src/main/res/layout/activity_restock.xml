@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:hint="@string/new_quantity"
+        android:autofillHints="@string/new_quantity"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +35,7 @@
             android:backgroundTint="@color/DarkSeaGreen"
             android:text="@string/ok"
             android:textColor="@color/white"
-            tools:layout_editor_absoluteX="218dp"
-            tools:layout_editor_absoluteY="321dp" />
+           />
 
     <Button
         android:id="@+id/cancel"
@@ -44,8 +44,7 @@
         android:backgroundTint="@color/DarkSeaGreen"
         android:text="@string/cancel"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="313dp" />
+      />
 
 
     </LinearLayout >

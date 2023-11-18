@@ -14,11 +14,15 @@ import java.util.ArrayList;
 public class HistoryRecycleViewAdapter extends  RecyclerView.Adapter<HistoryRecycleViewAdapter.HistoryViewHolder>{
     ArrayList<History> historyArrayList;
     Context activityContext;
-    int id;
 
+    interface toHistoryAdapter{
+        void onHistoryclicked(int i);
+    }
+    toHistoryAdapter listener;
     public HistoryRecycleViewAdapter(ArrayList<History> list, Context context) {
         this.historyArrayList = list;
         activityContext = context;
+
     }
 
     static class HistoryViewHolder extends RecyclerView.ViewHolder {
@@ -46,7 +50,11 @@ public class HistoryRecycleViewAdapter extends  RecyclerView.Adapter<HistoryRecy
         name.setText(currentProduct.getName());
         price.setText(String.valueOf(currentProduct.getPrice()));
         quantity.setText(String.valueOf(currentProduct.getQuantity()));
-        holder.itemView.setOnClickListener(v -> id= holder.getAdapterPosition());
+
+        holder.itemView.setOnClickListener(v -> listener.onHistoryclicked(holder.getAdapterPosition()));
+
+
+
     }
 
     @Override
