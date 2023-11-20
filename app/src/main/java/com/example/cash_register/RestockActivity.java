@@ -25,19 +25,11 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
     Product selectedProduct;
     ProductsBaseAdapter productsBaseAdapter;
 
-//    private static final String KEY_TEXT_INPUT = "text_input";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        if (savedInstanceState != null) {
-//
-//
-//            editText.setText(savedInstanceState.getString("edit text", ""));
-//            selectedProductIndex = savedInstanceState.getInt("selectedProductIndex", -1);
-//
-//
-//        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restock);
 
@@ -69,13 +61,14 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.ok) {
-            if (editText.getText().toString().isEmpty() || selectedProductIndex < 0) {
-                Toast.makeText(this, "Enter value", Toast.LENGTH_SHORT).show();
+            if(selectedProductIndex < 0){
+                Toast.makeText(this, "All Fields are required", Toast.LENGTH_SHORT).show();
+            }else if (editText.getText().toString().isEmpty() ) {
+                Toast.makeText(this, "All Fields are required", Toast.LENGTH_SHORT).show();
             } else {
                 String inputText = editText.getText().toString();
                 int restockQ = Integer.parseInt(inputText);
                 selectedProduct.restockQuantity(itemsList, restockQ);
-//                selectedProduct.setQuantity(restockQ);
                  if (itemsList != null ) {
                     productsBaseAdapter = new ProductsBaseAdapter(itemsList, this);
                     reStockList.setAdapter(productsBaseAdapter);
@@ -86,6 +79,7 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 editText.getText().clear();
+                selectedProductIndex= -1;
 
                 productsBaseAdapter.notifyDataSetChanged();
 
