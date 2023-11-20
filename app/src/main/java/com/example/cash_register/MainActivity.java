@@ -1,5 +1,6 @@
 package com.example.cash_register;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,22 +30,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Double priceOfItem;
     String product_name ;
     ProductsBaseAdapter productsBaseAdapter;
-//    private static final String KEY_QUANTITY = "quantity";
-//    private static final String KEY_TEXT_INPUT = "text_input";
-//    private static final String KEY_TOTAL = "total";
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-//        if (savedInstanceState != null) {
-//            displayQuantity.setText(savedInstanceState.getString("quantity", ""));
-//            text_input.setText(savedInstanceState.getString(KEY_TEXT_INPUT, ""));
-//            displayTotal.setText(savedInstanceState.getString(KEY_TOTAL, ""));
-//            selectedProductIndex = savedInstanceState.getInt("selectedProductIndex", -1);
-//
-//
-//        }
         setContentView(R.layout.activity_main);
+
+
         displayQuantity = findViewById(R.id.quantity);
         displayTotal = findViewById(R.id.total);
         one_button = findViewById(R.id.one);
@@ -76,12 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clear_btn.setOnClickListener(this);
         manger_btn.setOnClickListener(this);
         listOPurchaseHistory = ((myApp) getApplication()).getListOfProductsPurchased();
-        itemsList = ((myApp) getApplication()).getProductItem();
+       itemsList = ((myApp) getApplication()).getProductItem();
 
 
         productsBaseAdapter = new ProductsBaseAdapter(itemsList, this);
         productsList.setAdapter(productsBaseAdapter);
-//        productsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
           productsList.setOnItemClickListener((parent, view, position, id) -> {
               selectedProductIndex = position;
               if (selectedProductIndex >= 0) {
@@ -89,10 +85,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                   priceOfItem = selectedProduct.getPrice();
                   product_name = selectedProduct.getName();
                   text_input.setText(product_name);
-                  displayTotal.setText(String.valueOf(priceOfItem));
+                 displayTotal.setText(String.valueOf(priceOfItem));
               }
           });
+        if (savedInstanceState != null) {
+            displayQuantity.setText(savedInstanceState.getString("quantity"));
+            text_input.setText(savedInstanceState.getString("text_input"));
+            displayTotal.setText(savedInstanceState.getString("total"));
+            selectedProductIndex = savedInstanceState.getInt("selectedProductIndex");
+            if (selectedProductIndex >= 0 && selectedProductIndex < itemsList.size()) {
+                Product selectedProduct = itemsList.get(selectedProductIndex);
+                priceOfItem = selectedProduct.getPrice();
+                product_name = selectedProduct.getName();
+                text_input.setText(product_name);
+                displayTotal.setText(String.valueOf(priceOfItem));
 
+            }
+
+
+        }
     }
 
 
@@ -104,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.clear:
             displayQuantity.setText("");
             text_input.setText("");
+            displayTotal.setText("");
             break;
             case R.id.one:
             case R.id.two:
@@ -181,5 +193,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save the state of UI elements
+        outState.putString("quantity", displayQuantity.getText().toString());
+        outState.putString("text_input", text_input.getText().toString());
+        outState.putString("total", displayTotal.getText().toString());
+        outState.putInt("selectedProductIndex", selectedProductIndex);
+
+    }
+
 
 }

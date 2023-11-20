@@ -42,6 +42,7 @@
         <activity
             android:name=".MangerActivity"
             android:label="Manger List"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,7 +51,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:configChanges="orientation|screenSize"
+
+
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,3 +63,4 @@
     </application>
 
 </manifest>
+    <!--           android:configChanges="orientation|screenSize"-->

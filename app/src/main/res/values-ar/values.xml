@@ -2,19 +2,19 @@
 <resources>
     <string name="app_name">تسجيل المدفوعات </string>
     <string name="total">المبلع الاجمالي</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
+    <string name="one">١</string>
+    <string name="two">٢</string>
+    <string name="three">٣</string>
     <string name="minus">-</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
-    <string name="six">6</string>
+    <string name="four">٤</string>
+    <string name="five">٥</string>
+    <string name="six">٦</string>
     <string name="multiple">*</string>
-    <string name="seven">7</string>
-    <string name="eight">8</string>
-    <string name="nine">9</string>
+    <string name="seven">٧</string>
+    <string name="eight">٨</string>
+    <string name="nine">٩</string>
     <string name="divide">/</string>
-    <string name="zero">0</string>
+    <string name="zero">٠</string>
     <string name="equal">=</string>
     <string name="clear">C</string>
     <string name="buy">اشتري</string>
