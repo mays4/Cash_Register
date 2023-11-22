@@ -1,8 +1,5 @@
 package com.example.cash_register;
 
-
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,10 +10,7 @@ import java.util.ArrayList;
 
 public class HistoryListActivity extends AppCompatActivity implements HistoryRecycleViewAdapter.toHistoryAdapter{
     ArrayList<History> listOPurchaseHistory;
-
    RecyclerView historyViewList;
-
-
     HistoryRecycleViewAdapter historyRecycleViewAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +35,7 @@ public class HistoryListActivity extends AppCompatActivity implements HistoryRec
     public void onHistoryclicked(int i ) {
         Intent toDetailsIntent = new Intent(HistoryListActivity.this, HistoryDetailsActivity.class);
 
-        // Put the details of the selected item in the Intent as an extra
+        //  the details of the selected item in the Intent as an extra
         History selectedProduct = listOPurchaseHistory.get(i);
         toDetailsIntent.putExtra("details", selectedProduct);
         startActivity(toDetailsIntent);

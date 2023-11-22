@@ -10,12 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
 
 public class MangerActivity extends AppCompatActivity implements View.OnClickListener {
     Button history_btn, restock_btn;
-    ArrayList<History> listOPurchaseHistory;
-    ArrayList<Product> productList;
+
     SwitchCompat backgroundSwitch;
     int background_colourId;
 
@@ -37,8 +35,8 @@ public class MangerActivity extends AppCompatActivity implements View.OnClickLis
         backgroundSwitch = findViewById(R.id.dark_light_switch);
         backgroundSwitch.setOnClickListener(view -> {
             View v =   MangerActivity.this.getWindow().getDecorView();
-            //  (SwitchCompat)view.isChecked
-            if ( backgroundSwitch.isChecked()) {// background is gray
+
+            if ( backgroundSwitch.isChecked()) {
                 v.setBackgroundColor(getResources().getColor(R.color.DarkGray, null));
                 background_colourId = R.color.DarkGray;
             }else {
@@ -54,11 +52,11 @@ public class MangerActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (view.getId() == R.id.history) {
             Intent tohistoryIntent = new Intent(MangerActivity.this, HistoryListActivity.class);
-            tohistoryIntent.putExtra("historyList", listOPurchaseHistory);
+
             startActivity(tohistoryIntent);
         } else if (view.getId() == R.id.restock) {
             Intent toRestockIntent = new Intent(MangerActivity.this, RestockActivity.class);
-            toRestockIntent.putExtra("itemList", productList);
+
 
             startActivity(toRestockIntent);
 

@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        // Save the state of UI elements
+        // Save the state of  elements
         outState.putString("quantity", displayQuantity.getText().toString());
         outState.putString("text_input", text_input.getText().toString());
         outState.putString("total", displayTotal.getText().toString());
